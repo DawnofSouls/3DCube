@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
+
 
 //scene setup
 const scene = new THREE.Scene();
@@ -30,9 +32,18 @@ const gridHelper = new THREE.GridHelper(
 );
 scene.add(gridHelper);
 
+//cube
+const loader = new OBJLoader();
+loader.load('OBJS/cube.obj', (obj) => {
+    obj.scale.set(0.01, 0.01, 0.01);       // Scale it up/down if it's too big/small
+    obj.position.set(-0.5, 0, 2.5);    // Center it if it's off-screen
+    scene.add(obj);
+});
+
+
 //camera position
 camera.position.z = 5;
-camera.position.y = 0.5;
+camera.position.y = 1; //default 0.5
 
 //renders everything to show up on screen
 function animate() {
