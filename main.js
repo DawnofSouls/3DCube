@@ -34,4 +34,7 @@ camera.position.z = 5;
 camera.position.y = 0.5;
 
 //renders everything to show up on screen
-renderer.render(scene, camera);
+function animate() {
+    renderer.render( scene, camera );
+  }
+  renderer.setAnimationLoop( animate );
