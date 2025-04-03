@@ -16,10 +16,10 @@ document.body.appendChild(renderer.domElement);
 //
 
 //grid
-const size = 50;
-const divisions = 100;
-const colorCenterLine = 0xd8d8d8; // strong center line
-const colorGrid = 0x666666; // darker grid lines
+const size = 50;                    // How big the grid is
+const divisions = 100;              // division inside of grid
+const colorCenterLine = 0xd8d8d8;   // the cross center grid, will enable to see the origin, darker color
+const colorGrid = 0x666666;         // the general grid, lighter color
 
 const gridHelper = new THREE.GridHelper(
   size,                             
