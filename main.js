@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'; //camera controlls, disable when finished
 
 
 //scene setup
@@ -45,8 +46,19 @@ loader.load('OBJS/cube.obj', (obj) => {
 camera.position.z = 5;
 camera.position.y = 1; //default 0.5
 
+//moves camera via mouse (disable this when finished)
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; // optional for smoother movement
+controls.dampingFactor = 0.05;
+controls.target.set(0, 0, 0); // look at cube center
+controls.update();
+
 //renders everything to show up on screen
 function animate() {
+
+    requestAnimationFrame(animate);         // disable this when finished 
+    controls.update(); // important!        //disable this when finsihed
+
     renderer.render( scene, camera );
   }
   renderer.setAnimationLoop( animate );
