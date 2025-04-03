@@ -1,5 +1,6 @@
 import * as THREE from "three";
 
+//scene setup
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 const camera = new THREE.PerspectiveCamera(
