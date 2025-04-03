@@ -30,7 +30,8 @@ const gridHelper = new THREE.GridHelper(
 scene.add(gridHelper);
 
 //camera position
-camera.position.y = 1;
+camera.position.z = 5;
+camera.position.y = 0.5;
 
 //renders everything to show up on screen
 renderer.render(scene, camera);
