@@ -1,13 +1,12 @@
-import * as THREE from 'three';
-
+import * as THREE from "three";
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
+scene.background = new THREE.Color(0xffffff);
 const camera = new THREE.PerspectiveCamera(
-  75,                                       // FOV
-  window.innerWidth / window.innerHeight,   // ASPECT RATIO
-  0.1,                                      // NEAR 
-  1000                                      // FAR
+  75, // FOV
+  window.innerWidth / window.innerHeight, // ASPECT RATIO
+  0.1, // NEAR
+  1000 // FAR
 );
 
 //
@@ -19,12 +18,19 @@ document.body.appendChild(renderer.domElement);
 //grid
 const size = 50;
 const divisions = 100;
-const gridHelper = new THREE.GridHelper( size, divisions );
-scene.add( gridHelper );
+const colorCenterLine = 0xd8d8d8; // strong center line
+const colorGrid = 0x666666; // darker grid lines
+
+const gridHelper = new THREE.GridHelper(
+  size,                             
+  divisions,
+  colorGrid,
+  colorCenterLine
+);
+scene.add(gridHelper);
 
 //camera position
 camera.position.y = 1;
 
 //renders everything to show up on screen
-renderer.render( scene, camera );
-
+renderer.render(scene, camera);
